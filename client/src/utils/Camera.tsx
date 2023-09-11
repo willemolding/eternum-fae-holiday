@@ -38,7 +38,7 @@ const CameraControls = ({ position, target }: Props) => {
   const [isMapView] = useRoute("/map");
 
   const maxDistance = useMemo(() => {
-    return isMapView ? 500 : 3000;
+    return isMapView ? 30000 : 30000;
   }, [isMapView]);
 
   useControls({

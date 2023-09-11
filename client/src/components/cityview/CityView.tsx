@@ -302,15 +302,25 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
       <group name="Scene">
         <mesh
           name="archer_tower"
+          castShadow
+          receiveShadow
           geometry={nodes.archer_tower.geometry}
           material={materials.PaletteMaterial004}
           position={[-62.469486, 39.621521, -24.215282]}
           rotation={[0.011296, 0.828387, -0.004794]}
           scale={[35.000004, 35, 35]}
         />
-        <mesh name="barracks" geometry={nodes.barracks.geometry} material={materials.PaletteMaterial004} />
+        <mesh
+          name="barracks"
+          castShadow
+          receiveShadow
+          geometry={nodes.barracks.geometry}
+          material={materials.PaletteMaterial004}
+        />
         <mesh
           name="mage_tower"
+          castShadow
+          receiveShadow
           geometry={nodes.mage_tower.geometry}
           material={materials.PaletteMaterial004}
           position={[-8.498649, 27.847218, -229.488235]}
@@ -318,18 +328,25 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
         />
         <mesh
           name="castle"
+          castShadow
+          receiveShadow
           geometry={nodes.castle.geometry}
-          material={materials.PaletteMaterial004}
           position={[-25.330475, 32.69627, -113.067566]}
-        />
+        >
+          <meshStandardMaterial shadowSide={THREE.DoubleSide} />
+        </mesh>
         <group name="market-tent">
           <mesh
             name="army-tent-big001"
+            castShadow
+            receiveShadow
             geometry={nodes["army-tent-big001"].geometry}
             material={materials.PaletteMaterial001}
           />
           <mesh
             name="army-tent-big001_1"
+            castShadow
+            receiveShadow
             geometry={nodes["army-tent-big001_1"].geometry}
             material={materials.PaletteMaterial006}
           />
@@ -337,11 +354,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
         <group name="market-tent001" position={[132.23587, 7.119616, 80.059448]} rotation={[0, -1.343678, 0]}>
           <mesh
             name="army-tent-big001"
+            castShadow
+            receiveShadow
             geometry={nodes["army-tent-big001"].geometry}
             material={materials.PaletteMaterial001}
           />
           <mesh
             name="army-tent-big001_1"
+            castShadow
+            receiveShadow
             geometry={nodes["army-tent-big001_1"].geometry}
             material={materials.PaletteMaterial006}
           />
@@ -353,11 +374,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
         >
           <mesh
             name="army-tent-big001"
+            castShadow
+            receiveShadow
             geometry={nodes["army-tent-big001"].geometry}
             material={materials.PaletteMaterial001}
           />
           <mesh
             name="army-tent-big001_1"
+            castShadow
+            receiveShadow
             geometry={nodes["army-tent-big001_1"].geometry}
             material={materials.PaletteMaterial006}
           />
@@ -369,29 +394,39 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
         >
           <mesh
             name="army-tent-big001"
+            castShadow
+            receiveShadow
             geometry={nodes["army-tent-big001"].geometry}
             material={materials.PaletteMaterial001}
           />
           <mesh
             name="army-tent-big001_1"
+            castShadow
+            receiveShadow
             geometry={nodes["army-tent-big001_1"].geometry}
             material={materials.PaletteMaterial006}
           />
         </group>
         <mesh
           name="crops"
+          castShadow
+          receiveShadow
           geometry={nodes.crops.geometry}
           material={materials.PaletteMaterial014}
           position={[-209.282944, 0, -42.59145]}
         />
         <mesh
           name="ocean"
+          castShadow
+          receiveShadow
           geometry={nodes.ocean.geometry}
           material={materials.PaletteMaterial015}
           scale={[100, 1, 100]}
         />
         <mesh
           name="rivers"
+          castShadow
+          receiveShadow
           geometry={nodes.rivers.geometry}
           material={materials.PaletteMaterial016}
           position={[2.455429, 1.826893, -3.053192]}
@@ -399,11 +434,19 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
         />
         <mesh
           name="ocean_small"
+          castShadow
+          receiveShadow
           geometry={nodes.ocean_small.geometry}
           material={materials.PaletteMaterial015}
           scale={[1, 0.01, 1]}
         />
-        <mesh name="forest" geometry={nodes.forest.geometry} material={materials.PaletteMaterial018} />
+        <mesh
+          name="forest"
+          castShadow
+          receiveShadow
+          geometry={nodes.forest.geometry}
+          material={materials.PaletteMaterial018}
+        />
         <group
           name="deciduous-tree189"
           position={[494.866547, 4.604025, 284.570831]}
@@ -412,11 +455,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
         >
           <mesh
             name="deciduous-tree001"
+            castShadow
+            receiveShadow
             geometry={nodes["deciduous-tree001"].geometry}
             material={materials.PaletteMaterial018}
           />
           <mesh
             name="deciduous-tree001_1"
+            castShadow
+            receiveShadow
             geometry={nodes["deciduous-tree001_1"].geometry}
             material={materials.PaletteMaterial006}
           />
@@ -429,242 +476,267 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
         >
           <mesh
             name="deciduous-tree001"
+            castShadow
+            receiveShadow
             geometry={nodes["deciduous-tree001"].geometry}
             material={materials.PaletteMaterial018}
           />
           <mesh
             name="deciduous-tree001_1"
+            castShadow
+            receiveShadow
             geometry={nodes["deciduous-tree001_1"].geometry}
             material={materials.PaletteMaterial006}
           />
         </group>
-        <mesh name="forest-labor" geometry={nodes["forest-labor"].geometry} material={materials.PaletteMaterial018} />
-        {!enabledMines[0] && (
-          <mesh
-            name="forest-labor_mine-1"
-            geometry={nodes["forest-labor_mine-1"].geometry}
-            material={materials.PaletteMaterial018}
-            position={[255.524887, 24.816765, -274.141235]}
-          />
-        )}
-        {!enabledMines[1] && (
-          <mesh
-            name="forest-labor_mine-2"
-            geometry={nodes["forest-labor_mine-2"].geometry}
-            material={materials.PaletteMaterial018}
-            position={[347.965668, 31.691498, -262.068115]}
-            rotation={[0, 0.701062, 0]}
-          />
-        )}
-        {!enabledMines[2] && (
-          <mesh
-            name="forest-labor_mine-3"
-            geometry={nodes["forest-labor_mine-3"].geometry}
-            material={materials.PaletteMaterial018}
-            position={[443.692535, 37.123852, -254.909409]}
-            rotation={[0, 0.701062, 0]}
-          />
-        )}
-        {!enabledMines[3] && (
-          <mesh
-            name="forest-labor_mine-4"
-            geometry={nodes["forest-labor_mine-4"].geometry}
-            material={materials.PaletteMaterial018}
-            position={[217.164063, 15.933407, -180.459167]}
-            rotation={[0, 1.199812, 0]}
-          />
-        )}
-        {!enabledMines[4] && (
-          <mesh
-            name="forest-labor_mine-5"
-            geometry={nodes["forest-labor_mine-5"].geometry}
-            material={materials.PaletteMaterial018}
-            position={[348.106384, 24.380737, -185.882813]}
-            rotation={[0, 1.199812, 0]}
-          />
-        )}
-        {!enabledMines[5] && (
-          <mesh
-            name="forest-labor_mine-6"
-            geometry={nodes["forest-labor_mine-6"].geometry}
-            material={materials.PaletteMaterial018}
-            position={[368.398834, 14.289568, -116.425484]}
-            rotation={[0, 1.199812, 0]}
-          />
-        )}
-        {!enabledMines[6] && (
-          <mesh
-            name="forest-labor_mine-7"
-            geometry={nodes["forest-labor_mine-7"].geometry}
-            material={materials.PaletteMaterial018}
-            position={[444.873962, 14.289568, -69.293701]}
-            rotation={[0, 0.062514, 0]}
-          />
-        )}
+        <mesh
+          name="forest-labor"
+          castShadow
+          receiveShadow
+          geometry={nodes["forest-labor"].geometry}
+          material={materials.PaletteMaterial018}
+        />
+        <mesh
+          name="forest-labor_mine-1"
+          castShadow
+          receiveShadow
+          geometry={nodes["forest-labor_mine-1"].geometry}
+          material={materials.PaletteMaterial018}
+          position={[255.524887, 24.816765, -274.141235]}
+        />
+        <mesh
+          name="forest-labor_mine-2"
+          castShadow
+          receiveShadow
+          geometry={nodes["forest-labor_mine-2"].geometry}
+          material={materials.PaletteMaterial018}
+          position={[347.965668, 31.691498, -262.068115]}
+          rotation={[0, 0.701062, 0]}
+        />
+        <mesh
+          name="forest-labor_mine-3"
+          castShadow
+          receiveShadow
+          geometry={nodes["forest-labor_mine-3"].geometry}
+          material={materials.PaletteMaterial018}
+          position={[443.692535, 37.123852, -254.909409]}
+          rotation={[0, 0.701062, 0]}
+        />
+        <mesh
+          name="forest-labor_mine-4"
+          castShadow
+          receiveShadow
+          geometry={nodes["forest-labor_mine-4"].geometry}
+          material={materials.PaletteMaterial018}
+          position={[217.164063, 15.933407, -180.459167]}
+          rotation={[0, 1.199812, 0]}
+        />
+        <mesh
+          name="forest-labor_mine-5"
+          castShadow
+          receiveShadow
+          geometry={nodes["forest-labor_mine-5"].geometry}
+          material={materials.PaletteMaterial018}
+          position={[348.106384, 24.380737, -185.882813]}
+          rotation={[0, 1.199812, 0]}
+        />
+        <mesh
+          name="forest-labor_mine-6"
+          castShadow
+          receiveShadow
+          geometry={nodes["forest-labor_mine-6"].geometry}
+          material={materials.PaletteMaterial018}
+          position={[368.398834, 14.289568, -116.425484]}
+          rotation={[0, 1.199812, 0]}
+        />
+        <mesh
+          name="forest-labor_mine-7"
+          castShadow
+          receiveShadow
+          geometry={nodes["forest-labor_mine-7"].geometry}
+          material={materials.PaletteMaterial018}
+          position={[444.873962, 14.289568, -69.293701]}
+          rotation={[0, 0.062514, 0]}
+        />
         <group name="terrain" position={[0, -0.002192, 0]}>
-          <mesh name="terrain_1" geometry={nodes.terrain_1.geometry} material={materials.PaletteMaterial017} />
-          <mesh name="terrain_2" geometry={nodes.terrain_2.geometry} material={materials.PaletteMaterial005} />
-          <mesh name="terrain_3" geometry={nodes.terrain_3.geometry} material={materials.PaletteMaterial019} />
-          <mesh name="terrain_4" geometry={nodes.terrain_4.geometry} material={materials.PaletteMaterial001} />
-          <mesh name="terrain_5" geometry={nodes.terrain_5.geometry} material={materials.PaletteMaterial003} />
-          <mesh name="terrain_6" geometry={nodes.terrain_6.geometry} material={materials.PaletteMaterial004} />
-          <mesh name="terrain_7" geometry={nodes.terrain_7.geometry} material={materials.PaletteMaterial018} />
+          <mesh
+            name="terrain_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain_1.geometry}
+            material={materials.PaletteMaterial017}
+          />
+          <mesh
+            name="terrain_2"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain_2.geometry}
+            material={materials.PaletteMaterial005}
+          />
+          <mesh
+            name="terrain_3"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain_3.geometry}
+            material={materials.PaletteMaterial019}
+          />
+          <mesh
+            name="terrain_4"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain_4.geometry}
+            material={materials.PaletteMaterial001}
+          />
+          <mesh
+            name="terrain_5"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain_5.geometry}
+            material={materials.PaletteMaterial003}
+          />
+          <mesh
+            name="terrain_6"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain_6.geometry}
+            material={materials.PaletteMaterial004}
+          />
+          <mesh
+            name="terrain_7"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain_7.geometry}
+            material={materials.PaletteMaterial018}
+          />
         </group>
-        <group
-          onPointerEnter={() => setHoveredArea("market")}
-          onPointerLeave={() => setHoveredArea(null)}
-          name="floor_market"
-          position={[0, -0.002192, 0]}
-          onClick={() => setLocation(`/realm/${realmEntityId}/market`)}
-        >
-          {hoveredArea === "market" && (
-            <Html position={[125, 75, 75]} distanceFactor={400}>
-              <div className="p-2 text-white -translate-x-1/2 bg-black rounded-lg whitespace-nowrap">Market</div>
-            </Html>
-          )}
+        <group name="floor_market" position={[0, -0.002192, 0]}>
           <mesh
             name="floor_market_1"
+            castShadow
+            receiveShadow
             geometry={nodes.floor_market_1.geometry}
             material={materials.PaletteMaterial017}
           />
           <mesh
             name="floor_market_2"
+            castShadow
+            receiveShadow
             geometry={nodes.floor_market_2.geometry}
             material={materials.PaletteMaterial001}
           />
           <mesh
             name="floor_market_3"
+            castShadow
+            receiveShadow
             geometry={nodes.floor_market_3.geometry}
             material={materials.PaletteMaterial003}
           />
-          <mesh geometry={nodes.floor_market_3.geometry}>
-            <meshStandardMaterial
-              transparent={true}
-              color="#806a53"
-              toneMapped={false}
-              opacity={hoveredArea === "market" ? 0.5 : 0}
-              emissive="orange"
-              emissiveIntensity={25}
-            />
-          </mesh>
         </group>
-        <group
-          onPointerEnter={() => setHoveredArea("ranch")}
-          onPointerLeave={() => setHoveredArea(null)}
-          name="floor_ranch"
-          position={[0, -0.002192, 0]}
-          onClick={() => setLocation(`/realm/${realmEntityId}/caravans`)}
-        >
-          {hoveredArea === "ranch" && (
-            <Html position={[450, 75, 100]} distanceFactor={400}>
-              <div className="p-2 text-white -translate-x-1/2 bg-black rounded-lg whitespace-nowrap">Ranch</div>
-            </Html>
-          )}
-          <mesh name="floor_ranch_1" geometry={nodes.floor_ranch_1.geometry} material={materials.PaletteMaterial005} />
-          <mesh name="floor_ranch_2" geometry={nodes.floor_ranch_2.geometry} material={materials.PaletteMaterial019} />
-          <mesh name="floor_ranch_3" geometry={nodes.floor_ranch_3.geometry} material={materials.PaletteMaterial001} />
-          <mesh geometry={nodes.floor_ranch_3.geometry}>
-            <meshStandardMaterial
-              transparent={true}
-              color="#806a53"
-              toneMapped={false}
-              opacity={hoveredArea === "ranch" ? 0.5 : 0}
-              emissive="orange"
-              emissiveIntensity={25}
-            />
-          </mesh>
+        <group name="floor_ranch" position={[0, -0.002192, 0]}>
+          <mesh
+            name="floor_ranch_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.floor_ranch_1.geometry}
+            material={materials.PaletteMaterial005}
+          />
+          <mesh
+            name="floor_ranch_2"
+            castShadow
+            receiveShadow
+            geometry={nodes.floor_ranch_2.geometry}
+            material={materials.PaletteMaterial019}
+          />
+          <mesh
+            name="floor_ranch_3"
+            castShadow
+            receiveShadow
+            geometry={nodes.floor_ranch_3.geometry}
+            material={materials.PaletteMaterial001}
+          />
         </group>
-        <group
-          onPointerEnter={() => setHoveredArea("labor")}
-          onPointerLeave={() => setHoveredArea(null)}
-          onClick={() => setLocation(`/realm/${realmEntityId}/labor`)}
-          name="floor_labor"
-          position={[0, -0.002192, 0]}
-        >
-          {hoveredArea === "labor" && (
-            <Html position={[350, 75, -200]} distanceFactor={400}>
-              <div className="p-2 text-white -translate-x-1/2 bg-black rounded-lg whitespace-nowrap">Labor</div>
-            </Html>
-          )}
-          <mesh name="floor_labor_1" geometry={nodes.floor_labor_1.geometry} material={materials.PaletteMaterial005} />
-          <mesh name="floor_labor_2" geometry={nodes.floor_labor_2.geometry} material={materials.PaletteMaterial019} />
-          <mesh name="floor_labor_3" geometry={nodes.floor_labor_3.geometry} material={materials.PaletteMaterial001} />
-          <mesh geometry={nodes.floor_labor_2.geometry}>
-            <meshStandardMaterial
-              transparent={true}
-              color="#806a53"
-              toneMapped={false}
-              opacity={hoveredArea === "labor" ? 0.5 : 0}
-              emissive="orange"
-              emissiveIntensity={25}
-            />
-          </mesh>
+        <group name="floor_labor" position={[0, -0.002192, 0]}>
+          <mesh
+            name="floor_labor_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.floor_labor_1.geometry}
+            material={materials.PaletteMaterial005}
+          />
+          <mesh
+            name="floor_labor_2"
+            castShadow
+            receiveShadow
+            geometry={nodes.floor_labor_2.geometry}
+            material={materials.PaletteMaterial019}
+          />
+          <mesh
+            name="floor_labor_3"
+            castShadow
+            receiveShadow
+            geometry={nodes.floor_labor_3.geometry}
+            material={materials.PaletteMaterial001}
+          />
         </group>
-        <group
-          onPointerEnter={() => setHoveredArea("farm")}
-          onPointerLeave={() => setHoveredArea(null)}
-          onClick={() => {
-            setLocation(`/realm/${realmEntityId}/farm`);
-          }}
-          name="floor_farm"
-          position={[0, -0.002192, 0]}
-        >
-          {hoveredArea === "farm" && (
-            <Html position={[-300, 75, -100]} distanceFactor={400}>
-              <div className="p-2 text-white -translate-x-1/2 bg-black rounded-lg whitespace-nowrap">Farms</div>
-            </Html>
-          )}
-          <mesh name="terrain001" geometry={nodes.terrain001.geometry} material={materials.PaletteMaterial005} />
-          <mesh name="terrain001_1" geometry={nodes.terrain001_1.geometry} material={materials.PaletteMaterial019} />
-          <mesh name="terrain001_2" geometry={nodes.terrain001_2.geometry} material={materials.PaletteMaterial001} />
-          <mesh geometry={nodes.terrain001.geometry}>
-            <meshStandardMaterial
-              transparent={true}
-              color="#806a53"
-              toneMapped={false}
-              opacity={hoveredArea === "farm" ? 0.5 : 0}
-              emissive="orange"
-              emissiveIntensity={25}
-            />
-          </mesh>
+        <group name="floor_farm" position={[0, -0.002192, 0]}>
+          <mesh
+            name="terrain001"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain001.geometry}
+            material={materials.PaletteMaterial005}
+          />
+          <mesh
+            name="terrain001_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain001_1.geometry}
+            material={materials.PaletteMaterial019}
+          />
+          <mesh
+            name="terrain001_2"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain001_2.geometry}
+            material={materials.PaletteMaterial001}
+          />
         </group>
-        <group
-          onPointerEnter={() => setHoveredArea("fishery")}
-          onPointerLeave={() => setHoveredArea(null)}
-          onClick={() => {
-            setLocation(`/realm/${realmEntityId}/fish`);
-          }}
-          name="floor_fishery"
-          position={[0, -0.002192, 0]}
-        >
-          {hoveredArea === "fishery" && (
-            <Html position={[-195, 75, 150]} distanceFactor={400}>
-              <div className="p-2 text-white -translate-x-1/2 bg-black rounded-lg whitespace-nowrap">Fishery</div>
-            </Html>
-          )}
-          <mesh name="terrain002" geometry={nodes.terrain002.geometry} material={materials.PaletteMaterial005} />
-          <mesh name="terrain002_1" geometry={nodes.terrain002_1.geometry} material={materials.PaletteMaterial019} />
-          <mesh name="terrain002_2" geometry={nodes.terrain002_2.geometry} material={materials.PaletteMaterial001} />
-          <mesh geometry={nodes.terrain002.geometry}>
-            <meshStandardMaterial
-              transparent={true}
-              color="#806a53"
-              toneMapped={false}
-              opacity={hoveredArea === "fishery" ? 0.5 : 0}
-              emissive="orange"
-              emissiveIntensity={25}
-            />
-          </mesh>
+        <group name="floor_fishery" position={[0, -0.002192, 0]}>
+          <mesh
+            name="terrain002"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain002.geometry}
+            material={materials.PaletteMaterial005}
+          />
+          <mesh
+            name="terrain002_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain002_1.geometry}
+            material={materials.PaletteMaterial019}
+          />
+          <mesh
+            name="terrain002_2"
+            castShadow
+            receiveShadow
+            geometry={nodes.terrain002_2.geometry}
+            material={materials.PaletteMaterial001}
+          />
         </group>
         <group>
           <instancedMesh
             args={[nodes.tower.geometry, materials.PaletteMaterial001, 27]}
             name="tower"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.tower.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.tower_1.geometry, materials.PaletteMaterial002, 27]}
             name="tower_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.tower_1.instanceMatrix}
           />
         </group>
@@ -672,16 +744,22 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["wall-straight"].geometry, materials.PaletteMaterial001, 134]}
             name="wall-straight"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["wall-straight"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["wall-straight_1"].geometry, materials.PaletteMaterial002, 134]}
             name="wall-straight_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["wall-straight_1"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["wall-straight_2"].geometry, materials.PaletteMaterial003, 134]}
             name="wall-straight_2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["wall-straight_2"].instanceMatrix}
           />
         </group>
@@ -689,11 +767,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes.bridge.geometry, materials.PaletteMaterial004, 6]}
             name="bridge"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.bridge.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.bridge_1.geometry, materials.PaletteMaterial005, 6]}
             name="bridge_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.bridge_1.instanceMatrix}
           />
         </group>
@@ -701,28 +783,38 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["army-tent-big"].geometry, materials.PaletteMaterial001, 13]}
             name="army-tent-big"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["army-tent-big"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["army-tent-big_1"].geometry, materials.PaletteMaterial006, 13]}
             name="army-tent-big_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["army-tent-big_1"].instanceMatrix}
           />
         </group>
         <instancedMesh
           args={[nodes["tent-small"].geometry, materials.PaletteMaterial001, 27]}
           name="tent-small"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes["tent-small"].instanceMatrix}
         />
         <group>
           <instancedMesh
             args={[nodes.banner.geometry, materials.PaletteMaterial006, 12]}
             name="banner"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.banner.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.banner_1.geometry, materials.PaletteMaterial001, 12]}
             name="banner_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.banner_1.instanceMatrix}
           />
         </group>
@@ -730,16 +822,22 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["timber-wall"].geometry, materials.PaletteMaterial006, 50]}
             name="timber-wall"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["timber-wall"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["timber-wall_1"].geometry, materials.PaletteMaterial007, 50]}
             name="timber-wall_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["timber-wall_1"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["timber-wall_2"].geometry, materials.PaletteMaterial002, 50]}
             name="timber-wall_2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["timber-wall_2"].instanceMatrix}
           />
         </group>
@@ -747,21 +845,29 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes.granary.geometry, materials.PaletteMaterial002, 11]}
             name="granary"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.granary.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.granary_1.geometry, materials.PaletteMaterial008, 11]}
             name="granary_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.granary_1.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.granary_2.geometry, materials.PaletteMaterial009, 11]}
             name="granary_2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.granary_2.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.granary_3.geometry, materials.PaletteMaterial006, 11]}
             name="granary_3"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.granary_3.instanceMatrix}
           />
         </group>
@@ -769,33 +875,45 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["covered-boxes"].geometry, materials.PaletteMaterial001, 9]}
             name="covered-boxes"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["covered-boxes"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["covered-boxes_1"].geometry, materials.PaletteMaterial006, 9]}
             name="covered-boxes_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["covered-boxes_1"].instanceMatrix}
           />
         </group>
         <instancedMesh
           args={[nodes["box-pile"].geometry, materials.PaletteMaterial007, 12]}
           name="box-pile"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes["box-pile"].instanceMatrix}
         />
         <instancedMesh
           args={[nodes["army-tent-big002"].geometry, materials.PaletteMaterial009, 13]}
           name="army-tent-big002"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes["army-tent-big002"].instanceMatrix}
         />
         <group>
           <instancedMesh
             args={[nodes["market-stall"].geometry, materials.PaletteMaterial006, 99]}
             name="market-stall"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["market-stall"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["market-stall_1"].geometry, materials.PaletteMaterial001, 99]}
             name="market-stall_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["market-stall_1"].instanceMatrix}
           />
         </group>
@@ -803,11 +921,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes.caravan.geometry, materials.PaletteMaterial010, 23]}
             name="caravan"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.caravan.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.caravan_1.geometry, materials.PaletteMaterial006, 23]}
             name="caravan_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.caravan_1.instanceMatrix}
           />
         </group>
@@ -815,16 +937,22 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["store-square"].geometry, materials.PaletteMaterial009, 18]}
             name="store-square"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["store-square"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["store-square_1"].geometry, materials.PaletteMaterial011, 18]}
             name="store-square_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["store-square_1"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["store-square_2"].geometry, materials.PaletteMaterial006, 18]}
             name="store-square_2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["store-square_2"].instanceMatrix}
           />
         </group>
@@ -832,11 +960,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["roofed-market"].geometry, materials.PaletteMaterial009, 23]}
             name="roofed-market"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["roofed-market"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["roofed-market_1"].geometry, materials.PaletteMaterial006, 23]}
             name="roofed-market_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["roofed-market_1"].instanceMatrix}
           />
         </group>
@@ -844,65 +976,89 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["triangular-market"].geometry, materials.PaletteMaterial009, 12]}
             name="triangular-market"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["triangular-market"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["triangular-market_1"].geometry, materials.PaletteMaterial006, 12]}
             name="triangular-market_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["triangular-market_1"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["triangular-market_2"].geometry, materials.PaletteMaterial011, 12]}
             name="triangular-market_2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["triangular-market_2"].instanceMatrix}
           />
         </group>
         <instancedMesh
           args={[nodes.stable.geometry, materials.PaletteMaterial006, 22]}
           name="stable"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes.stable.instanceMatrix}
         />
         <instancedMesh
           args={[nodes["mount-rest"].geometry, materials.PaletteMaterial006, 36]}
           name="mount-rest"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes["mount-rest"].instanceMatrix}
         />
         <instancedMesh
           args={[nodes.fence.geometry, materials.PaletteMaterial006, 700]}
           name="fence"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes.fence.instanceMatrix}
         />
         <group>
           <instancedMesh
             args={[nodes["hay-stack"].geometry, materials.PaletteMaterial012, 37]}
             name="hay-stack"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["hay-stack"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["hay-stack_1"].geometry, materials.PaletteMaterial013, 37]}
             name="hay-stack_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["hay-stack_1"].instanceMatrix}
           />
         </group>
         <instancedMesh
           args={[nodes.crop.geometry, materials.PaletteMaterial014, 54]}
           name="crop"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes.crop.instanceMatrix}
         />
         <group>
           <instancedMesh
             args={[nodes["house-1"].geometry, materials.PaletteMaterial009, 44]}
             name="house-1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-1"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["house-1_1"].geometry, materials.PaletteMaterial011, 44]}
             name="house-1_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-1_1"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["house-1_2"].geometry, materials.PaletteMaterial006, 44]}
             name="house-1_2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-1_2"].instanceMatrix}
           />
         </group>
@@ -910,16 +1066,22 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["house-2"].geometry, materials.PaletteMaterial009, 14]}
             name="house-2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-2"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["house-2_1"].geometry, materials.PaletteMaterial011, 14]}
             name="house-2_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-2_1"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["house-2_2"].geometry, materials.PaletteMaterial006, 14]}
             name="house-2_2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-2_2"].instanceMatrix}
           />
         </group>
@@ -927,16 +1089,22 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["house-3"].geometry, materials.PaletteMaterial009, 10]}
             name="house-3"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-3"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["house-3_1"].geometry, materials.PaletteMaterial011, 10]}
             name="house-3_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-3_1"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["house-3_2"].geometry, materials.PaletteMaterial006, 10]}
             name="house-3_2"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-3_2"].instanceMatrix}
           />
         </group>
@@ -944,11 +1112,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["house-4"].geometry, materials.PaletteMaterial009, 22]}
             name="house-4"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-4"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["house-4_1"].geometry, materials.PaletteMaterial011, 22]}
             name="house-4_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-4_1"].instanceMatrix}
           />
         </group>
@@ -956,11 +1128,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["house-5"].geometry, materials.PaletteMaterial009, 44]}
             name="house-5"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-5"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["house-5_1"].geometry, materials.PaletteMaterial006, 44]}
             name="house-5_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["house-5_1"].instanceMatrix}
           />
         </group>
@@ -968,28 +1144,38 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes.pier.geometry, materials.PaletteMaterial006, 17]}
             name="pier"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.pier.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.pier_1.geometry, materials.PaletteMaterial002, 17]}
             name="pier_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.pier_1.instanceMatrix}
           />
         </group>
         <instancedMesh
           args={[nodes["pier-small"].geometry, materials.PaletteMaterial006, 22]}
           name="pier-small"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes["pier-small"].instanceMatrix}
         />
         <group>
           <instancedMesh
             args={[nodes.boat.geometry, materials.PaletteMaterial006, 27]}
             name="boat"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.boat.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.boat_1.geometry, materials.PaletteMaterial001, 27]}
             name="boat_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.boat_1.instanceMatrix}
           />
         </group>
@@ -997,43 +1183,75 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes.mine.geometry, materials.PaletteMaterial004, 7]}
             name="mine"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.mine.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.mine_1.geometry, materials.PaletteMaterial005, 7]}
             name="mine_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.mine_1.instanceMatrix}
           />
-          <primitive object={mine_2} />
+          <instancedMesh
+            args={[nodes.mine_2.geometry, materials.PaletteMaterial006, 7]}
+            name="mine_2"
+            castShadow
+            receiveShadow
+            instanceMatrix={nodes.mine_2.instanceMatrix}
+          />
         </group>
-        <primitive object={deposit} />
+        <instancedMesh
+          args={[nodes.deposit.geometry, materials.PaletteMaterial004, 15]}
+          name="deposit"
+          castShadow
+          receiveShadow
+          instanceMatrix={nodes.deposit.instanceMatrix}
+        />
         <group>
           <instancedMesh
             args={[nodes["mining-hut"].geometry, materials.PaletteMaterial009, 18]}
             name="mining-hut"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["mining-hut"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["mining-hut_1"].geometry, materials.PaletteMaterial006, 18]}
             name="mining-hut_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["mining-hut_1"].instanceMatrix}
           />
         </group>
-        <primitive object={smoke} />
+        <instancedMesh
+          args={[nodes["mine-smoke"].geometry, materials.Smoke, 18]}
+          name="mine-smoke"
+          castShadow
+          receiveShadow
+          instanceMatrix={nodes["mine-smoke"].instanceMatrix}
+        />
         <instancedMesh
           args={[nodes["water-fall"].geometry, materials.PaletteMaterial017, 35]}
           name="water-fall"
+          castShadow
+          receiveShadow
           instanceMatrix={nodes["water-fall"].instanceMatrix}
         />
         <group>
           <instancedMesh
             args={[nodes["deciduous-tree"].geometry, materials.PaletteMaterial018, 261]}
             name="deciduous-tree"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["deciduous-tree"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["deciduous-tree_1"].geometry, materials.PaletteMaterial006, 261]}
             name="deciduous-tree_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["deciduous-tree_1"].instanceMatrix}
           />
         </group>
@@ -1041,11 +1259,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes["evergreen-tree"].geometry, materials.PaletteMaterial001, 81]}
             name="evergreen-tree"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["evergreen-tree"].instanceMatrix}
           />
           <instancedMesh
             args={[nodes["evergreen-tree_1"].geometry, materials.PaletteMaterial006, 81]}
             name="evergreen-tree_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes["evergreen-tree_1"].instanceMatrix}
           />
         </group>
@@ -1053,11 +1275,15 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           <instancedMesh
             args={[nodes.rock.geometry, materials.PaletteMaterial004, 181]}
             name="rock"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.rock.instanceMatrix}
           />
           <instancedMesh
             args={[nodes.rock_1.geometry, materials.PaletteMaterial019, 181]}
             name="rock_1"
+            castShadow
+            receiveShadow
             instanceMatrix={nodes.rock_1.instanceMatrix}
           />
         </group>

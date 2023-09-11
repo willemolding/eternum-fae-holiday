@@ -1,47 +1,61 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, extend, useThree } from "@react-three/fiber";
 import { WorldMapScene } from "./WorldMapScene";
 import { RealmCityViewScene } from "./RealmCityViewScene";
 import useUIStore from "../../hooks/store/useUIStore";
 import { Perf } from "r3f-perf";
 import { useLocation, Switch, Route } from "wouter";
 import { a } from "@react-spring/three";
-import {
-  Sky,
-  CameraShake,
-  AdaptiveDpr,
-  AdaptiveEvents,
-} from "@react-three/drei";
-import { Suspense, useMemo } from "react";
-import {
-  EffectComposer,
-  Bloom,
-  Noise,
-  SMAA,
-} from "@react-three/postprocessing";
+import { Sky, CameraShake, AdaptiveDpr, AdaptiveEvents, useHelper } from "@react-three/drei";
+import { Suspense, useEffect, useMemo, useRef } from "react";
+import { EffectComposer, Bloom, Noise, SMAA } from "@react-three/postprocessing";
 // @ts-ignore
 import { Sobel } from "../../utils/effects.jsx";
 import { useControls } from "leva";
 import { CameraControls } from "../../utils/Camera";
 import { BlendFunction } from "postprocessing";
+import * as THREE from "three";
 
 export const Camera = () => {
   const cameraPosition = useUIStore((state) => state.cameraPosition);
   const cameraTarget = useUIStore((state) => state.cameraTarget);
+  const { scene } = useThree();
+
+  const { lightPosition, bias } = useControls({
+    lightPosition: {
+      value: { x: 0, y: 100, z: 200 },
+      step: 0.01,
+    },
+    bias: {
+      value: 0,
+      min: -0.05,
+      max: 0.05,
+      step: 0.001,
+    },
+  });
+
+  const dLightRef = useRef<any>();
+  useHelper(dLightRef, THREE.DirectionalLightHelper, 50, "hotpink");
 
   return (
     <>
       <CameraControls position={cameraPosition} target={cameraTarget} />
+      <directionalLight
+        ref={dLightRef}
+        castShadow
+        shadow-mapSize={[4096, 4096]}
+        shadow-camera-far={3000}
+        shadow-camera-left={-3000}
+        shadow-camera-right={3000}
+        shadow-camera-top={3000}
+        shadow-camera-bottom={-3000}
+        shadow-bias={bias}
+        position={[lightPosition.x, lightPosition.y, lightPosition.z]}
+        intensity={1}
+      ></directionalLight>
     </>
   );
 };
 export const MainScene = () => {
-  const { lightPosition } = useControls({
-    lightPosition: {
-      value: { x: 0, y: 10, z: 15 },
-      step: 0.01,
-    },
-  });
-
   const [location] = useLocation();
   // location type
   const locationType = useMemo(() => {
@@ -70,8 +84,9 @@ export const MainScene = () => {
     <Canvas
       raycaster={{ params: { Points: { threshold: 0.2 } } }}
       className="rounded-xl"
-      camera={{ fov: 15, position: [0, 700, 0], far: 3500 }}
+      camera={{ fov: 15, position: [0, 700, 0], far: 30000 }}
       dpr={[1, 2]}
+      shadows
       gl={{
         powerPreference: "high-performance",
         antialias: false,
@@ -81,13 +96,9 @@ export const MainScene = () => {
       }}
     >
       {import.meta.env.DEV && <Perf position="bottom-left" />}
-      <Sky azimuth={0.1} inclination={0.6} distance={1000} />
-      <ambientLight />
+
+      <ambientLight intensity={0.5} />
       <Camera />
-      <directionalLight
-        castShadow
-        position={[lightPosition.x, lightPosition.y, lightPosition.z]}
-      />
       <CameraShake {...shakeConfig} />
       <Suspense fallback={null}>
         <a.group>
@@ -103,11 +114,7 @@ export const MainScene = () => {
       </Suspense>
       <EffectComposer multisampling={0}>
         <Bloom luminanceThreshold={0} intensity={0.1} mipmapBlur />
-        <Noise
-          premultiply
-          blendFunction={BlendFunction.SOFT_LIGHT}
-          opacity={0.3}
-        />
+        <Noise premultiply blendFunction={BlendFunction.SOFT_LIGHT} opacity={0.3} />
         <SMAA />
       </EffectComposer>
       <AdaptiveDpr />
