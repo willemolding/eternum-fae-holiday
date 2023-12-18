@@ -1219,6 +1219,7 @@ dependencies = [
  "starknet",
  "tokio",
  "tracing",
+ "url",
 ]
 
 [[package]]
