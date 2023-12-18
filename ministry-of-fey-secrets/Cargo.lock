@@ -1214,6 +1214,8 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "axum",
+ "serde",
+ "serde_json",
  "shuttle-axum",
  "shuttle-runtime",
  "shuttle-secrets",
