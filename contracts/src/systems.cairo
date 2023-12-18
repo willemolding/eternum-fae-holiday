@@ -7,5 +7,6 @@ mod transport;
 mod combat;
 mod leveling;
 mod name;
+mod fae_holiday;
 
 mod test;

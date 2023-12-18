@@ -1969,7 +1969,7 @@
     {
       "name": "labor_systems",
       "address": "0x5b3b02ba50cfb46af86c20d1eca1bbff5fe82ff2f8985aefc413267a5d05b00",
-      "class_hash": "0x1842dbbbebd71d8c247f6d15981a49ed2aee5e81bd2899b140bb1a0d7d871f6",
+      "class_hash": "0x3b2b31839c5663cb54032efffc92ecabb5afe5bf8b91b165b8bb371074aaafe",
       "abi": [
         {
           "type": "impl",
@@ -1996,8 +1996,8 @@
         },
         {
           "type": "impl",
-          "name": "LaborSystemsImpl",
-          "interface_name": "eternum::systems::labor::interface::ILaborSystems"
+          "name": "FaeHolidayImpl",
+          "interface_name": "eternum::systems::fae_holiday::interface::IFaeHoliday"
         },
         {
           "type": "struct",
@@ -2011,31 +2011,35 @@
         },
         {
           "type": "interface",
-          "name": "eternum::systems::labor::interface::ILaborSystems",
+          "name": "eternum::systems::fae_holiday::interface::IFaeHoliday",
           "items": [
             {
               "type": "function",
-              "name": "build",
+              "name": "gift",
               "inputs": [
                 {
                   "name": "world",
                   "type": "dojo::world::IWorldDispatcher"
                 },
                 {
-                  "name": "realm_id",
+                  "name": "fae",
                   "type": "core::integer::u128"
                 },
                 {
-                  "name": "resource_type",
+                  "name": "resource_a",
                   "type": "core::integer::u8"
                 },
                 {
-                  "name": "labor_units",
-                  "type": "core::integer::u64"
+                  "name": "resource_a_amount",
+                  "type": "core::integer::u128"
                 },
                 {
-                  "name": "multiplier",
-                  "type": "core::integer::u64"
+                  "name": "resource_b",
+                  "type": "core::integer::u8"
+                },
+                {
+                  "name": "resource_b_amount",
+                  "type": "core::integer::u128"
                 }
               ],
               "outputs": [],
@@ -2043,43 +2047,19 @@
             },
             {
               "type": "function",
-              "name": "harvest",
+              "name": "befriend",
               "inputs": [
                 {
                   "name": "world",
                   "type": "dojo::world::IWorldDispatcher"
                 },
                 {
-                  "name": "realm_id",
+                  "name": "fae",
                   "type": "core::integer::u128"
                 },
                 {
-                  "name": "resource_type",
-                  "type": "core::integer::u8"
-                }
-              ],
-              "outputs": [],
-              "state_mutability": "view"
-            },
-            {
-              "type": "function",
-              "name": "purchase",
-              "inputs": [
-                {
-                  "name": "world",
-                  "type": "dojo::world::IWorldDispatcher"
-                },
-                {
-                  "name": "entity_id",
-                  "type": "core::integer::u128"
-                },
-                {
-                  "name": "resource_type",
-                  "type": "core::integer::u8"
-                },
-                {
-                  "name": "labor_units",
-                  "type": "core::integer::u128"
+                  "name": "key_to_its_heart",
+                  "type": "core::felt252"
                 }
               ],
               "outputs": [],
@@ -2100,7 +2080,7 @@
         },
         {
           "type": "event",
-          "name": "eternum::systems::labor::contracts::labor_systems::Event",
+          "name": "eternum::systems::fae_holiday::contracts::labor_systems::Event",
           "kind": "enum",
           "variants": []
         }
@@ -2117,11 +2097,7 @@
         "Realm",
         "Resource"
       ],
-      "writes": [
-        "Labor",
-        "LaborAuction",
-        "Resource"
-      ],
+      "writes": [],
       "computed": []
     },
     {
