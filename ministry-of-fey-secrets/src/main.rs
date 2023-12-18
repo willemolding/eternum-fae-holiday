@@ -55,6 +55,8 @@ async fn handler(
         )
         .await?;
 
+    println!("events: {:?}", events);
+
     // filter by the caller and event type. There can be multiple events in a single block
     let fae_gift_events = process_events(events.events);
 
